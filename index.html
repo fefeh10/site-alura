@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura na Floresta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aventura na Floresta</h1>
+    <div id="story">
+        <p>Você está na entrada de uma floresta misteriosa. O que você deseja fazer?</p>
+        <button onclick="chooseOption('explorar')">Explorar a floresta</button>
+        <button onclick="chooseOption('voltar')">Voltar para casa</button>
+    </div>
+
+    <div id="explorar" class="hidden">
+        <p>Você avança pela floresta e encontra uma bifurcação. Você pode:</p>
+        <button onclick="chooseOption('esquerda')">Ir para a esquerda</button>
+        <button onclick="chooseOption('direita')">Ir para a direita</button>
+    </div>
+
+    <div id="voltar" class="hidden">
+        <p>Você decidiu voltar para casa. Fim da aventura!</p>
+        <button onclick="reset()">Recomeçar</button>
+    </div>
+
+    <div id="esquerda" class="hidden">
+        <p>Você encontrou um lago bonito. O que você quer fazer?</p>
+        <button onclick="chooseOption('nadar')">Nadar no lago</button>
+        <button onclick="chooseOption('pescar')">Tentar pescar</button>
+    </div>
+
+    <div id="direita" class="hidden">
+        <p>Você encontrou uma caverna escura. O que você quer fazer?</p>
+        <button onclick="chooseOption('entrar')">Entrar na caverna</button>
+        <button onclick="chooseOption('sair')">Sair correndo</button>
+    </div>
+
+    <div id="nadar" class="hidden">
+        <p>Você nadou no lago e se divertiu muito! Você decidiu voltar para casa. Fim da aventura!</p>
+        <button onclick="reset()">Recomeçar</button>
+    </div>
+
+    <div id="pescar" class="hidden">
+        <p>Você pescou um peixe grande! Agora você pode voltar para casa com sua captura. Fim da aventura!</p>
+        <button onclick="reset()">Recomeçar</button>
+    </div>
+
+    <div id="entrar" class="hidden">
+        <p>Você entrou na caverna e encontrou um tesouro! Você é rico! Fim da aventura!</p>
+        <button onclick="reset()">Recomeçar</button>
+    </div>
+
+    <div id="sair" class="hidden">
+        <p>Você saiu correndo e decidiu que a floresta não era para você. Fim da aventura!</p>
+        <button onclick="reset()">Recomeçar</button>
+    </div>
+
+    <script>
+        function chooseOption(option) {
+            document.getElementById('story').classList.add('hidden');
+            document.getElementById('explorar').classList.add('hidden');
+            document.getElementById('voltar').classList.add('hidden');
+            document.getElementById('esquerda').classList.add('hidden');
+            document.getElementById('direita').classList.add('hidden');
+            document.getElementById('nadar').classList.add('hidden');
+            document.getElementById('pescar').classList.add('hidden');
+            document.getElementById('entrar').classList.add('hidden');
+            document.getElementById('sair').classList.add('hidden');
+
+            if (option === 'explorar') {
+                document.getElementById('explorar').classList.remove('hidden');
+            } else if (option === 'voltar') {
+                document.getElementById('voltar').classList.remove('hidden');
+            } else if (option === 'esquerda') {
+                document.getElementById('esquerda').classList.remove('hidden');
+            } else if (option === 'direita') {
+                document.getElementById('direita').classList.remove('hidden');
+            } else if (option === 'nadar') {
+                document.getElementById('nadar').classList.remove('hidden');
+            } else if (option === 'pescar') {
+                document.getElementById('pescar').classList.remove('hidden');
+            } else if (option === 'entrar') {
+                document.getElementById('entrar').classList.remove('hidden');
+            } else if (option === 'sair') {
+                document.getElementById('sair').classList.remove('hidden');
+            }
+        }
+
+        function reset() {
+            document.getElementById('story').classList.remove('hidden');
+            document.getElementById('explorar').classList.add('hidden');
+            document.getElementById('voltar').classList.add('hidden');
+            document.getElementById('esquerda').classList.add('hidden');
+            document.getElementById('direita').classList.add('hidden');
+            document.getElementById('nadar').classList.add('hidden');
+            document.getElementById('pescar').classList.add('hidden');
+            document.getElementById('entrar').classList.add('hidden');
+            document.getElementById('sair').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
